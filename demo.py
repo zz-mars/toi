@@ -1,6 +1,7 @@
 import json
 import paho.mqtt.client as mqtt
 from rasp_control import *
+from config import *
 
 import logging
 logging.basicConfig(
@@ -11,8 +12,6 @@ logging.basicConfig(
 DEV_NAME = "light"
 TOPIC_UPLOAD = "/%(DEV_NAME)s/upload"%globals()
 TOPIC_GET = "/%(DEV_NAME)s/get"%globals()
-MQTT_SERVER_HOST = "139.199.191.81"
-MQTT_SERVER_PORT = 1883
 
 def on_connect(client, userdata, flags, rc):
     logging.info("connected with result code: %(rc)s"%vars())

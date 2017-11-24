@@ -2,6 +2,7 @@ import json
 import time
 import paho.mqtt.client as mqtt
 from rasp_control import *
+from config import *
 
 import logging
 logging.basicConfig(
@@ -12,8 +13,6 @@ logging.basicConfig(
 DEV_NAME = "switch"
 TOPIC_UPLOAD = "/%(DEV_NAME)s/upload"%globals()
 TOPIC_GET = "/%(DEV_NAME)s/get"%globals()
-MQTT_SERVER_HOST = "139.199.191.81"
-MQTT_SERVER_PORT = 1883
 
 client = mqtt.Client()
 client.connect(MQTT_SERVER_HOST, MQTT_SERVER_PORT, 60)
