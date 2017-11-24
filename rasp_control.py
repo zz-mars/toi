@@ -3,6 +3,12 @@ import Adafruit_DHT
 import time
 import sys
 
+import logging
+logging.basicConfig(
+    format = "%(asctime)s %(filename)s: %(lineno)d %(levelname)s %(message)s",
+    datefmr = "%m-%d %H:%M:%S",
+    level = logging.INFO)
+
 def led_control(value=GPIO.LOW, PIN=8):
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(PIN, GPIO.OUT)
@@ -26,8 +32,8 @@ def get_temp():
 
 if __name__ == "__main__":
     humidity, temperature = get_temp()
-    print "humidity => %(humidity).1f%%"%vars()
-    print "temperature => %(temperature).1f*C"%vars()
+    logging.info("humidity => %(humidity).1f%%"%vars())
+    logging.info("temperature => %(temperature).1f*C"%vars())
     sys.exit(0)
     led_control(GPIO.HIGH)
     time.sleep(1)
