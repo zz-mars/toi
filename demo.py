@@ -24,9 +24,9 @@ def on_message(client, userdata, msg):
     logging.info("topic: %(topic)s, payload: %(payload)s"%vars())
     payload = json.loads(payload)
     if payload["action"] == "open":
-        led_control(GPIO.HIGH)
+        led_blink()
     elif payload["action"] == "close":
-        led_control(GPIO.LOW)
+        led_control()
     elif payload["action"] == "color":
         led_blink(PIN=7)
 
